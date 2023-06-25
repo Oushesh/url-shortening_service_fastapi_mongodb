@@ -23,7 +23,8 @@ origins = [
     "http://localhost",
     "http://localhost:3000",
     # Add more allowed origins if needed
-    ".vercel.app",
+    "https//*.vercel.app",
+    "cluster43596.2lkinc9.mongodb.net",
     "https://url-shortening-service-ol9j-asrsz3ovb-oushesh.vercel.app/encode_url",
     "https://url-shortening-service-ol9j-asrsz3ovb-oushesh.vercel.app/decode_url",
     "*",
