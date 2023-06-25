@@ -16,7 +16,8 @@ origins = [
     "http://localhost",
     "http://localhost:3000",
     # Add more allowed origins if needed
-    "*"
+    "*",
+    "https://*.vercel.app",
 ]
 
 app.add_middleware(
