@@ -23,4 +23,4 @@ The backend for the url shortening service with MongoDB instead of inmemory cach
     so I hacked my way to deploying Django and FastAPI on vercel and it works.
 
 ## Preview
-   ![](docs/fastapi_swagger_AdobeExpress.gif) 
+   ![](docs/gif_fastapi_swagger.gif) 
