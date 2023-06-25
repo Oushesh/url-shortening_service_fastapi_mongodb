@@ -1,4 +1,4 @@
-# url-shortening_service_fastapi_mongodb
+## url-shortening_service_fastapi_mongodb
 The backend for the url shortening service with MongoDB instead of inmemory caching
 
 
@@ -22,5 +22,11 @@ The backend for the url shortening service with MongoDB instead of inmemory cach
     Plus, development clouds like Heroku and Digital Ocean charge 7 USD for just storage and running apps like Django and FastAPI
     so I hacked my way to deploying Django and FastAPI on vercel and it works.
 
+    Also precommit hooks for code quality and consistency are used: black and isort is used. When code is pushed code gets automatically restructured for readability purposes.
+
+    
 ## Preview
+    When you run the app: put http://127.0.0.1:8000/docs# on your browser.
    ![](docs/gif_fastapi_swagger.gif) 
+
+
