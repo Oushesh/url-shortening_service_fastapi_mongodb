@@ -43,5 +43,5 @@ async def test_decode_url():
     params = {"url_input": "https://www.google.com"}
 
 
-# Run the tests
-# Write more tests using AI.
+
+
