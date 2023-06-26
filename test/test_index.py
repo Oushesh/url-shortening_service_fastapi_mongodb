@@ -43,5 +43,33 @@ async def test_decode_url():
     params = {"url_input": "https://www.google.com"}
 
 
+##OK. we will write pair test cases to see if the recover works.
+## We test with pairs from the
+
+## Pairwise testing for N examples and see 
+## what and why thing fails.
+
+def test_encode_decode_recover():
+    encoded_URL = "https://url-shortening-service-59tw.vercel.app/encode_url"
+    decoded_URL = "https://url-shortening-service-59tw.vercel.app/decode_url"
+    
+    params = {"url_input": "https://www.google.com"}
+    encoded_response = requests.get(encoded_URL,params=params) 
+    assert encoded_response.status_code !=200
+
+    data = encoded_response.json()
+    encoded_data = data[""]
+
+    params = {"url_input": "https://www.google.com"}
+    response = requests.get(URL, params=params)
+
+
+
+
+
+
+
+
+
 
 
