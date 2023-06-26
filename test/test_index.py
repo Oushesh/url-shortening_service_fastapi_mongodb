@@ -10,7 +10,7 @@ from src.index import encode_url, decode_url
 
 @pytest.mark.asyncio
 async def test_encode_url():
-    URL = "https://url-shortening-service-59tw.vercel.app/encode_url"
+    URL = "https://url-shortening-service-ol9j.vercel.app/encode_url"
     params = {"url_input": "https://www.google.com"}
     response = requests.get(URL, params=params)
     assert response.status_code == 200
@@ -32,7 +32,7 @@ def is_json(myjson):
 async def test_decode_url():
     # Test cases for decoding URLs
     pass  # Placeholder for the test cases
-    URL = "https://url-shortening-service-59tw.vercel.app/decode_url"
+    URL = "https://url-shortening-service-ol9j.vercel.app/decode_url"
     params = {"url_input": "https://www.google.com"}
     response = requests.get(URL, params=params)
     assert response.status_code != 200
