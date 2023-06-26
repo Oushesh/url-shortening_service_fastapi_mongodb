@@ -50,18 +50,25 @@ async def test_decode_url():
 ## what and why thing fails.
 
 def test_encode_decode_recover():
-    encoded_URL = "https://url-shortening-service-59tw.vercel.app/encode_url"
-    decoded_URL = "https://url-shortening-service-59tw.vercel.app/decode_url"
+    encoded_URL = "https://url-shortening-service-ol9j.vercel.app/encode_url"
+    decoded_URL = "https://url-shortening-service-ol9j.vercel.app/decode_url"
     
-    params = {"url_input": "https://www.google.com"}
-    encoded_response = requests.get(encoded_URL,params=params) 
+    input_url = "https://www.google.com"
+    encoded_params = {"url_input": input_url}
+    encoded_response = requests.get(encoded_URL,params=encoded_params) 
     assert encoded_response.status_code !=200
 
     data = encoded_response.json()
-    encoded_data = data[""]
+    encoded_data = data["short_url"]
 
-    params = {"url_input": "https://www.google.com"}
-    response = requests.get(URL, params=params)
+    decoded_params = {"short_url":encoded_data}
+    decoded_response = requests.get(decoded_URL,params=decoded_params)
+
+    original_url = decoded_response["long_url"]
+    #Check that the decoded reponse is the original url.
+    assert (input_url==original_url)
+
+  
 
 
 
