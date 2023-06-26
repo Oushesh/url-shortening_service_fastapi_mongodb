@@ -16,7 +16,6 @@ The backend for the url shortening service with MongoDB instead of inmemory cach
    * uvicorn main:app --reload then on  http://127.0.0.1:8000 you should see the api endpoints with Swagger UI
      Type: http://127.0.0.1:8000/docs# on browser.
      
-
 ## Development Philosophy:
     For small projects I avoid deploying on AWS Cloud using stuffs like AWS Elasticbean with Codepipline automation from aws.
     Plus, development clouds like Heroku and Digital Ocean charge 7 USD for just storage and running apps like Django and FastAPI
