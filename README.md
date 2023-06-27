@@ -23,6 +23,11 @@ The backend for the url shortening service with MongoDB instead of inmemory cach
 
     Also precommit hooks for code quality and consistency are used: black and isort is used. When code is pushed code gets automatically restructured for readability purposes.
 
+    Every branch has .githubworkflow yaml which run configured pytests before branch are merged.
+
+    pytest in itself is configured so any file with test_*.py runs. The tests are
+    made such that the url encoded when decoded gives the original one.
+
     
 ## Preview
     When you run the app: put http://127.0.0.1:8000/docs# on your browser.
