@@ -13,8 +13,9 @@ The backend for the url shortening service with MongoDB instead of inmemory cach
      use the MongoDB atlas with a free tier cluster: https://www.mongodb.com/atlas/database?tck=docs_server
 
 ## Run:
-   * uvicorn main:app --reload then on  http://127.0.0.1:8000 you should see the api endpoints with Swagger UI
-     Type: http://127.0.0.1:8000/docs# on browser.
+   * uvicorn main:app --reload
+   * then on  http://127.0.0.1:8000 you should see the api endpoints with Swagger UI
+   * http://127.0.0.1:8000/docs# on browser.
      
 ## Development Philosophy:
     For small projects I avoid deploying on AWS Cloud using stuffs like AWS Elasticbean with Codepipline automation from aws.
