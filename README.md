@@ -34,4 +34,7 @@ The backend for the url shortening service with MongoDB instead of inmemory cach
     When you run the app: put http://127.0.0.1:8000/docs# on your browser.
    ![](docs/gif_fastapi_swagger.gif) 
 
+   Run the app in 1 terminal and in the other terminal:
+   pytest 
+
 
