@@ -5,3 +5,4 @@ cachetools
 pydantic
 pytest-asyncio
 pymongo
+python-dotenv

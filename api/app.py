@@ -4,12 +4,19 @@ from fastapi.middleware.cors import CORSMiddleware
 from pymongo import MongoClient
 from hashlib import md5
 from itertools import count
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # Load environment variables from .env file
 
 app = FastAPI()
 
-username = 'Cluster43596'
-password = 'TWB8eXFHRER6'
-cluster_uri = 'cluster43596.2lkinc9.mongodb.net'
+
+username = os.getenv("MONGO_USERNAME")
+password = os.getenv("MONGO_PASSWORD")
+cluster_uri = os.getenv("MONGO_CLUSTER_URI")
+
+print (username,password,cluster_uri)
 
 # Create the MongoDB client
 client = MongoClient(f'mongodb+srv://{username}:{password}@{cluster_uri}/test?retryWrites=true&w=majority')
@@ -39,7 +46,10 @@ app.add_middleware(
 
 @app.get("/encode_url")
 def encode_url(url_input: str):
-    print ("input",url_input)
+    #Checking input
+    assert (isinstance(url_input,str))
+    assert (url_input.startswith("https://") or url_input.startswith("http://"))
+
     md5_hash = md5(url_input.encode()).hexdigest()
     short_url = f'{md5_hash[:6]}{next(counter)}'
 
@@ -49,7 +59,7 @@ def encode_url(url_input: str):
     # Print the cache from the database
     
     cache = list(db.urls.find())
-    print("Cache from MongoDB:")
+    #print("Cache from MongoDB:")
     for item in cache:
         print(item)
 
@@ -58,16 +68,12 @@ def encode_url(url_input: str):
 
 @app.get("/decode_url")
 def decode_url(short_url: str, redirect: bool = False):
-    print ("short_url",short_url)
+    
     # Retrieve the mapping from the database
     url_mapping = db.urls.find_one({"short_url": short_url})
-    print ("object searched",short_url)
-    print ("decoding mapping",url_mapping)
-    # Print the cache from the database
+    
+    # Cache listing from mongoDB
     cache = list(db.urls.find())
-    print("Cache from MongoDB:")
-    for item in cache:
-        print(item)
 
     if url_mapping:
         long_url = url_mapping.get("long_url")
@@ -78,7 +84,7 @@ def decode_url(short_url: str, redirect: bool = False):
             else:
                 return {"error": "Invalid URL format for redirection"}
         else:
-            print ("original_url:", long_url)
+            #print ("original_url:", long_url)
             return {"long_url": long_url}
     else:
         return {"error": "Short URL not found"}
