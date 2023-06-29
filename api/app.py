@@ -14,8 +14,9 @@ app = FastAPI()
 
 username = os.getenv("MONGO_USERNAME")
 password = os.getenv("MONGO_PASSWORD")
-cluster_url = os.getenv("MONGO_CLUSTER_URI")
+cluster_uri = os.getenv("MONGO_CLUSTER_URI")
 
+print (username,password,cluster_uri)
 
 # Create the MongoDB client
 client = MongoClient(f'mongodb+srv://{username}:{password}@{cluster_uri}/test?retryWrites=true&w=majority')
