@@ -4,12 +4,18 @@ from fastapi.middleware.cors import CORSMiddleware
 from pymongo import MongoClient
 from hashlib import md5
 from itertools import count
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # Load environment variables from .env file
 
 app = FastAPI()
 
-username = 'Cluster43596'
-password = 'TWB8eXFHRER6'
-cluster_uri = 'cluster43596.2lkinc9.mongodb.net'
+
+username = os.getenv("MONGO_USERNAME")
+password = os.getenv("MONGO_PASSWORD")
+cluster_url = os.getenv("MONGO_CLUSTER_URI")
+
 
 # Create the MongoDB client
 client = MongoClient(f'mongodb+srv://{username}:{password}@{cluster_uri}/test?retryWrites=true&w=majority')
